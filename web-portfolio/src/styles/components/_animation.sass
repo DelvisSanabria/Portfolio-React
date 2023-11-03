@@ -1,0 +1,200 @@
+@import "./_mixins"
+
+body
+  background: #272727
+  @include position(center,center)
+  width: 100%
+  height: 100vh
+  margin: 0
+  box-sizing: border-box
+  overflow: hidden
+
+.container__six
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%232ea7e0' stroke-width='2' stroke-dasharray='10%25%2c 25%25' stroke-dashoffset='68' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(180%)
+  border-radius: 100px
+  z-index: 2
+
+.container__sd__six
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%232ea8e093' stroke-width='2' stroke-dasharray='25%25%2c 30%25' stroke-dashoffset='15' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(180%)
+  border-radius: 100px
+  animation: circle__sd__six 25s linear infinite
+  z-index: 1
+
+@keyframes circle__sd__six
+  0%
+    transform: scale(180%) rotate(0deg)
+  100%
+    transform: scale(180%) rotate(360deg)
+
+.circle__projets
+  width: 15px
+  height: 15px
+  background: #da4c0a
+  border-radius: 50%
+  position: relative
+  top: 50px
+  bottom: 5px
+  right: 1px
+  left: 3px
+  z-index: 20
+
+.container__five
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%232ea7e0' stroke-width='4' stroke-dasharray='60%25%2c 16%25' stroke-dashoffset='28' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(160%)
+  border-radius: 100px
+  z-index: 5
+
+.container__sd__five
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%232ea8e093' stroke-width='4' stroke-dasharray='30%25%2c 25%25' stroke-dashoffset='55' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(160%)
+  border-radius: 100px
+  animation: circle__sd__five 40s linear infinite
+  z-index: 4
+
+@keyframes circle__sd__five
+  0%
+    transform: scale(160%) rotate(0deg)
+  100%
+    transform: scale(160%) rotate(360deg)
+
+.container__four
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23EC3463' stroke-width='5' stroke-dasharray='70%25%2c 30%25' stroke-dashoffset='86' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(150%)
+  border-radius: 100px
+  z-index: 7
+
+.container__sd__four
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23ec34628c' stroke-width='5' stroke-dasharray='40%25%2c 30%25' stroke-dashoffset='86' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(150%)
+  border-radius: 100px
+  animation: circle__sd__four 30s linear infinite
+  z-index: 6
+
+@keyframes circle__sd__four
+  0%
+    transform: scale(150%) rotate(0deg)
+  100%
+    transform: scale(150%) rotate(360deg)
+
+.circle__skills
+  width: 15px
+  height: 15px
+  background: #EC3463
+  border-radius: 50%
+  position: relative
+  top: 150px
+  bottom: 5px
+  right: 25px
+  left: 173px
+  z-index: 8
+
+.container__three
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23da4c0a' stroke-width='3' stroke-dasharray='20%25%2c 13%25' stroke-dashoffset='65' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(130%)
+  border-radius: 100px
+  z-index: 10
+
+.container__sd__three
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23da4c0a94' stroke-width='3' stroke-dasharray='40%25%2c 60%25' stroke-dashoffset='67' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(130%)
+  border-radius: 100px
+  animation: circle__sd__three 45s linear infinite
+  z-index: 9
+
+@keyframes circle__sd__three
+  0%
+    transform: scale(130%) rotate(0deg)
+  100%
+    transform: scale(130%) rotate(360deg)
+
+.circle__contact
+  width: 15px
+  height: 15px
+  background: #2ea7e0
+  border-radius: 50%
+  position: relative
+  top: 80px
+  bottom: 5px
+  right: 1px
+  left: 190px
+  z-index: 20
+
+.container__one
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23af6868' stroke-width='1' stroke-dasharray='15%25%2c 25%25' stroke-dashoffset='45' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(100%)
+  border-radius: 100px
+  z-index: 14
+
+.container__sd__one
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23af68688a' stroke-width='1' stroke-dasharray='20%25%2c 10%25' stroke-dashoffset='10' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(100%)
+  border-radius: 100px
+  animation: circle__sd__one 65s linear infinite
+  z-index: 13
+
+@keyframes circle__sd__one
+  0%
+    transform: scale(100%) rotate(0deg)
+  100%
+    transform: scale(100%) rotate(360deg)
+
+.container__sd__two
+  @include default__settings
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23ec34628c' stroke-width='1' stroke-dasharray='20%25%2c 15%25' stroke-dashoffset='87' stroke-linecap='butt'/%3e%3c/svg%3e")
+  transform: scale(110%)
+  border-radius: 100px
+  animation: circle__sd__two 75s linear infinite
+  z-index: 12
+
+@keyframes circle__sd__two
+  0%
+    transform: scale(110%) rotate(0deg)
+  100%
+    transform: scale(110%) rotate(360deg)
+
+.logContainer
+  position: relative
+  top: 70px
+  left: 40px
+  width: 100px
+.logo
+  width: 120px
+
+.generalContainer
+  display: grid
+  grid-template-rows: 1fr 500px
+  overflow: hidden
+  width: 100vw
+  justify-content: center
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 800px)
+  .generalContainer
+    display: grid
+    grid-template-columns: 400px 500px
+    overflow: hidden
+    position: relative
+    gap: 20px
+    width: 100vw
+    align-items: center
+    justify-items: center
+  .secondCont
+    position: absolute
+    bottom: 500px
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px)
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px)

@@ -1,0 +1,60 @@
+@import "./_mixins"
+.container
+  display: flex
+  align-items: center
+  position: absolute
+  top: 20px
+  left: 50px
+.cardContainer
+    @include defaultWindows(370px,90vh)
+    @include defaultBg(#272727d3)
+    @include defaultPosition(relative, 20)
+    padding: 15px
+    animation: modal .5s
+
+.card
+  @include defaultGridRow(20px 50px 1fr)
+  gap: 5px
+  .closeWindows
+      display: flex
+      justify-content: flex-end
+      .closeBtn
+        display: flex
+        align-items: center
+        background-color: transparent
+        box-shadow: 0 1px 3px 0px rgb(0, 0, 0 / 0.1), 0 1px 2px -1px rgb(0, 0, 0 / 0.1)
+        border: 1px solid black
+        border-radius: 7px
+        padding: 13px
+        color: #fff
+        @include btnTransition()
+      .closeBtn:hover
+        background-color: #141313
+  .titleStyle
+      letter-spacing: 0.4rem    
+  
+@media only screen and (min-width: 800px)
+  .container
+    display: flex
+    align-items: center
+    position: absolute
+    top: 20px
+    left: 215px
+  .cardContainer
+    @include defaultWindows(450px,90vh)
+    @include defaultBg(#272727d3)
+    @include defaultPosition(relative, 20)
+    padding: 15px
+
+@media only screen and (min-width: 900px)
+  .container
+    left: 410px
+
+
+@media only screen and (min-width: 1030px)
+  .container
+    left: 510px
+
+@media only screen and (min-width: 1200px)
+  .container
+    left: 700px
