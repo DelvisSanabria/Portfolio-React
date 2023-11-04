@@ -1,12 +1,12 @@
 import './../styles/components/_animation.sass'
 
-export function Circles({children, contClasses, sdClasses}){
+export function Circles({children, contClasses, sdClasses, style}){
   return(
     <>
-      <div className={contClasses}>
+      <div className={contClasses} style={style}>
         {children}
       </div>
-      <div className={sdClasses}></div>
+      <div className={sdClasses} style={style}></div>
     </>
   )
 };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import  './../styles/components/_presentationText.sass'
+import  './../styles/components/_presentationText.sass';
+import { easeIn, easeInOut, motion } from "framer-motion";
 
 export function Presentation() {
   const words = ["Delvis", "Web Development", "simplicity lover", "love the functional"];
@@ -15,14 +16,14 @@ export function Presentation() {
       if (isDeleting && charIndex > 0) {
         setDynamicText(currentWord.substring(0, charIndex - 1));
         charIndex--;
-        setTimeout(typeEffect, 200);
+        setTimeout(typeEffect, 100);
       } else if (charIndex < currentWord.length) {
         setDynamicText(currentWord.substring(0, charIndex + 1));
         charIndex++;
-        setTimeout(typeEffect, 300);
+        setTimeout(typeEffect, 100);
       } else {
         isDeleting = true;
-        setTimeout(typeEffect, 1200);
+        setTimeout(typeEffect, 4000);
       }
       
       if (isDeleting && charIndex === 0) {
@@ -35,8 +36,21 @@ export function Presentation() {
   }, []);
 
   return (
-    <div className='textContainer'>
-      <h1>I'm <br /> <span>{dynamicText}</span></h1>
-    </div>
+    <>
+      <motion.div
+        className="textContainer"
+        initial={{
+          opacity: 0,
+          y: -150,
+          transitionTimingFunction: easeInOut,
+          transitionDuration: 5,
+        }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h1>
+          I'm <br /> <span>{dynamicText}</span>
+        </h1>
+      </motion.div>
+    </>
   );
 }

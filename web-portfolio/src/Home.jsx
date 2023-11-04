@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import './styles/components/_animation.sass'
 import { Circles } from './components/Circles';
@@ -5,22 +6,22 @@ import { Circle } from './components/Circle';
 import { Card } from './components/Card';
 import logo from "./assets/Complete__logo__rc.png"
 import { Presentation } from './components/Presentation';
+import { AnimatePresence, easeInOut, motion } from "framer-motion"
 
 function Home() {
-  const [selectedCircle, setSelectedCircle] = useState("")
+  const [selectedCircle, setSelectedCircle] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
   const handleCircleClick = (cirle)=>{
     setSelectedCircle(cirle)
+    setIsVisible(true);
   }
-  const [Modal, setModal] = useState(false);
 
-  function openModal(){
-    setModal(true)
-  }
   function closeModal(){
-    setSelectedCircle("")
+    setIsVisible(false);
+    setSelectedCircle("");
   }
 
-  const MoveContainer = ({children})=>{
+  const MoveContainer = ()=>{
     const [mousePos, setMousePos] = useState({x:0, y:0});
     const sensitivity = 10;
     const handleMouseMove = (event) => {
@@ -44,11 +45,21 @@ function Home() {
   const AnimationPosition = ({mousePos,sensitivity}) => {
     return (
       <>
-      <div
+      <motion.div
         className="animationPosition"
         style={{
-          transform: `translate(${mousePos.x/sensitivity}px,${mousePos.y / sensitivity}px)`
+          translateX: `${mousePos.x/sensitivity}px`,
+          translateY: `${mousePos.y / sensitivity}px`,
         }}
+        initial={{
+          opacity: 0,
+          scale: 0,
+        }}
+        animate={{ opacity: 1, scale: 1 }}
+
+        transition={{transitionTimingFunction:easeInOut,
+          transitionDelay: 100,
+          transitionDuration: 25,}}
       >
         <Circles
           contClasses={"container__six"}
@@ -103,16 +114,18 @@ function Home() {
             />
           </div>
         </Circles>
-      </div>
+      </motion.div>
       </>
     );
   };
   return (
     <>
       <div className="container">
-        {selectedCircle && (
-          <Card event={closeModal} selectedCircle={selectedCircle}></Card>
-        )}
+        <AnimatePresence>
+          {isVisible == true && (
+            <Card event={closeModal} selectedCircle={selectedCircle}></Card>
+          )}
+        </AnimatePresence>
       </div>
       <div className="generalContainer">
         <Presentation></Presentation>

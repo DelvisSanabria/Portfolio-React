@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import  './../styles/components/_skillsmenu.sass';
+import { motion } from "framer-motion";
 
 export function Slider({imgSlides}){
   const [index, setIndex] = useState(0);
@@ -35,7 +36,11 @@ export function Slider({imgSlides}){
           </svg>
         </div>
         <div className="slider">
-          <img className="sliderImg" src={img} alt="#" />
+          <motion.img initial={{opacity:0, scale:0.5}}
+            className="sliderImg"
+            transition={{duration:2}}
+            animate={{opacity:1,scale:1}}
+            src={img} alt="#" />
         </div>
         <div className="nextBtn" onClick={nextImg}>
           <svg
