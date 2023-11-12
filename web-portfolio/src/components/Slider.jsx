@@ -1,59 +1,30 @@
-import { useEffect, useState } from "react";
+import { useRef,useEffect, useState } from "react";
 import  './../styles/components/_skillsmenu.sass';
 import { motion } from "framer-motion";
+import  images from "./images.jsx";
 
-export function Slider({imgSlides}){
-  const [index, setIndex] = useState(0);
-  const [img, setImg] = useState(imgSlides);
-  const length = imgSlides.length
-  
-  useEffect(
-    () => {
-      setImg(imgSlides[index])
-    }, [index]
+export function Slider(){
+  const [width, setWidth] = useState(0);
+  const slider = useRef();
+  let index = 0;
+  useEffect(()=>{
+   setWidth(slider.current.scrollWidth - slider.current.offsetWidth); 
+  }, []);
+  function updateIndex(){
+    index++
+  }
+  return(
+    <motion.div ref={slider} className="sliderContainer" whileTap={{cursor:"grabbing"}}>
+      <motion.div drag="x" dragConstraints={{right:0, left: -width}} className="slider">
+        {images.map(image =>{
+          return(
+            <motion.div className="sliderImgCont" key={index}>
+              {image}
+              {updateIndex()}
+            </motion.div>
+          )
+        })}
+      </motion.div>
+    </motion.div>
   )
-
-
-  function nextImg() {
-    setIndex( index === length - 1 ? 0 : index + 1 )
-  }
-  function previousImg() {
-    setIndex(index === 0 ? length - 1 : index - 1)
-  }
-
-  return (
-    <>
-      <div className="sliderContainer">
-        <div className="previousBtn" onClick={previousImg}>
-          <svg
-            className="ctrlBtn"
-            xmlns="http://www.w3.org/2000/svg"
-            height="48"
-            viewBox="0 -960 960 960"
-            width="48"
-          >
-            <path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z" />
-          </svg>
-        </div>
-        <div className="slider">
-          <motion.img initial={{opacity:0, scale:0.5}}
-            className="sliderImg"
-            transition={{duration:2}}
-            animate={{opacity:1,scale:1}}
-            src={img} alt="#" />
-        </div>
-        <div className="nextBtn" onClick={nextImg}>
-          <svg
-            className="ctrlBtn"
-            xmlns="http://www.w3.org/2000/svg"
-            height="48"
-            viewBox="0 -960 960 960"
-            width="48"
-          >
-            <path d="m375-240-43-43 198-198-198-198 43-43 241 241-241 241Z" />
-          </svg>
-        </div>
-      </div>
-    </>
-  );
 }
