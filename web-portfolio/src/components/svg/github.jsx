@@ -1,5 +1,3 @@
-import  './../../styles/components/_aboutMenu.sass'
-
 const GithubLogo = ()=>{
   return (
     <svg className='iconsOne'
