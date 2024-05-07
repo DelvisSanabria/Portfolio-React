@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
-import { PrincipalWindows } from './components/PrincipalWindows';
-
+import { PresentationSection } from './components/PresentationSection';
+import {Menu} from './../src/components/Menu'
+import { AboutMeSection } from './components/AboutMeSection';
 function Home() {
   return(
     <>
-      <PrincipalWindows></PrincipalWindows>
+    <div className='bg-[#f5f5f5] relative'>
+      <PresentationSection></PresentationSection>
+      <Menu />
+      <AboutMeSection/>
+    </div>
     </>
   )
 }
