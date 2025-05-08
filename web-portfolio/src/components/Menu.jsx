@@ -24,7 +24,7 @@ export function Menu() {
           initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="sticky flex items-center overflow-hidden mx-0 my-4 bottom-[1vh] left-[2vw]  bg-[#d2d3ce] w-[430px] rounded-xl p-1 text-[#101736] text-xs select-none md:left-[24vw] lg:left-[31vw]">
+          className="sticky flex items-center overflow-hidden mx-0 my-4 top-[94vh] left-[2vw]  bg-[#d2d3ce] w-[430px] rounded-xl p-1 text-[#101736] text-xs select-none md:left-[24vw] lg:left-[31vw]">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -60,7 +60,7 @@ export function Menu() {
             exit={{opacity:0, y: -200}}
             whileHover={{scale:1.2, background:"#b9b9b9"}}
             onClick={handleClick}
-            className="sticky bottom-[1vh] left-[50vw] grid justify-items-center  bg-[#d2d3ce] w-[45px] rounded-xl p-1 m-4 text-[#101736] text-xs select-none cursor-pointer"
+            className="sticky top-[94vh] left-[50vw] grid justify-items-center  bg-[#d2d3ce] w-[45px] rounded-xl p-1 m-4 text-[#101736] text-xs select-none cursor-pointer"
           >
             <motion.div
               initial={{ y: 0 }}

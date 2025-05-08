@@ -5,9 +5,9 @@ import { AboutMeSection } from './components/AboutMeSection';
 function Home() {
   return(
     <>
-    <div className='bg-[#f5f5f5] relative'>
-      <PresentationSection></PresentationSection>
+    <div className='bg-[#f5f5f5] relative top-[-60px]'>
       <Menu />
+      <PresentationSection></PresentationSection>
       <AboutMeSection/>
     </div>
     </>

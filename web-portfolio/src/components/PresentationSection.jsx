@@ -35,8 +35,8 @@ export function PresentationSection(){
     y.set(0);
   }
   return (
-    <div className="grid grid-rows-[70px_1fr] w-[95vw] overflow-x-hidden h-[100vh]">
-      <header className="grid grid-cols-2 items-center my-2">
+    <div className="grid grid-rows-[70px_1fr] w-[97vw] overflow-x-hidden h-[100vh]">
+      <header className=" grid grid-cols-2 items-center my-2">
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0, y: -100 }}
