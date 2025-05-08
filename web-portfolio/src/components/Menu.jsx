@@ -1,5 +1,5 @@
-import CloseIcon from "./svg/closeIcon";
-import {HamburgerMenu} from "./svg/HamburgerMenu";
+import CloseIcon from "./svg/CloseIcon.jsx";
+import {HamburgerMenu} from "./svg/HamburgerMenu.jsx";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
