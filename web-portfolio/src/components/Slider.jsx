@@ -27,7 +27,7 @@ export function Slider() {
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 bg-[#d2d3ce] rounded-2xl p-4 flex items-center justify-center hover:bg-[#b9b9b9] transition-colors duration-300"
+              className="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 bg-[#d2d3ce] dark:bg-[#1a2347] rounded-2xl p-4 flex items-center justify-center hover:bg-[#b9b9b9] dark:hover:bg-[#232d4a] transition-colors duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

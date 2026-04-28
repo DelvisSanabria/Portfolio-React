@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="bg-[#101736] text-[#f5f5f5] py-8 px-4 md:px-10">
+    <footer className="bg-[#101736] dark:bg-[#0a0f1e] text-[#f5f5f5] py-8 px-4 md:px-10 transition-colors duration-300">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

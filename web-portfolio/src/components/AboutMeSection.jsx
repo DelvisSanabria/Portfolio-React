@@ -1,191 +1,155 @@
 import { motion } from "framer-motion";
-import { useState,useEffect } from "react";
-import React from 'react';
+import { useState, useEffect } from "react";
 
 export function AboutMeSection() {
-  const [selectedId, setSelectedId] = useState(null);
+  const [expandedId, setExpandedId] = useState(null);
 
-  const isBoxSelected = selectedId !== null;
-
-  // --- Hook useEffect para controlar el scroll del body ---
   useEffect(() => {
-    const body = document.body; // Obtiene el elemento body
-
-    if (isBoxSelected) {
-      // Si una caja está seleccionada, bloquea el scroll
-      body.style.overflow = 'hidden';
+    if (expandedId) {
+      document.body.style.overflow = 'hidden';
     } else {
-      // Si no hay cajas seleccionadas, permite el scroll
-      body.style.overflow = ''; // O 'visible', 'auto'. Usar '' remueve el estilo inline.
+      document.body.style.overflow = '';
     }
-
-    // Función de limpieza: esto se ejecuta cuando el componente se desmonta
-    // o antes de que el efecto se ejecute de nuevo (si isBoxSelected cambia)
     return () => {
-      body.style.overflow = ''; // Asegura que el scroll se habilite al desmontar o antes del re-render
+      document.body.style.overflow = '';
     };
-  }, [isBoxSelected]); // El efecto depende del estado isBoxSelected
+  }, [expandedId]);
 
-
-  // Datos de las cajas con su className inicial definido
   const boxes = [
-    // Primera Fila: Dos cajas, col-span 1 y 2. Suma = 3. Necesita grid-cols-3.
-    { id: 0, title: "Education", content: "Self-taught Web Developer with focus on modern JavaScript frameworks. Constantly learning and adapting to new technologies.", className: "col-span-1 h-[200px] md:h-[250px]" },
-    { id: 1, title: "Experience", content: "Building web applications with React, Node.js, and modern tools. Passionate about creating clean, user-friendly interfaces.",   className: "col-span-2 h-[200px] md:h-[250px]" },
-    // Segunda Fila: Dos cajas, col-span 2 y 1. Suma = 3. Necesita grid-cols-3.
-    { id: 2, title: "Approach", content: "I believe in writing clean, maintainable code and creating exceptional user experiences through thoughtful design and functionality.",   className: "col-span-2 h-[200px] md:h-[250px]" },
-    { id: 3, title: "Interests", content: "When not coding, I enjoy exploring new technologies, contributing to open source, and staying up-to-date with web development trends.", className: "col-span-1 h-[200px] md:h-[250px]" },
+    {
+      id: 0,
+      title: "Education",
+      content: "Self-taught Web Developer with focus on modern JavaScript frameworks. Constantly learning and adapting to new technologies.",
+      span: "md:col-span-1"
+    },
+    {
+      id: 1,
+      title: "Experience",
+      content: "Building web applications with React, Node.js, and modern tools. Passionate about creating clean, user-friendly interfaces.",
+      span: "md:col-span-2"
+    },
+    {
+      id: 2,
+      title: "Approach",
+      content: "I believe in writing clean, maintainable code and creating exceptional user experiences through thoughtful design and functionality.",
+      span: "md:col-span-2"
+    },
+    {
+      id: 3,
+      title: "Interests",
+      content: "When not coding, I enjoy exploring new technologies, contributing to open source, and staying up-to-date with web development trends.",
+      span: "md:col-span-1"
+    },
   ];
 
-
-  const boxVariants = {
-    selected: {
-      opacity: 1,
-      scale: 1,
-      width: "90vw",
-      height: "auto",
-      maxHeight: "80vh",
-      position: "fixed",
-      top: "50%",
-      left: "50%",
-      translateX: "-50%",
-      translateY: "-50%",
-      zIndex: 1000,
-      padding: "20px",
-      overflowY: "auto",
-      transition: { type: "spring", stiffness: 100 },
-    },
-    unselected: {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      y: 0,
-      position: "static",
-      top: undefined,
-      left: undefined,
-      translateX: undefined,
-      translateY: undefined,
-      zIndex: 'auto',
-      transition: { type: "spring", stiffness: 100 },
-    },
-  };
-
-  const handleBoxClick = (id) => {
-    if (selectedId === id) {
-      return;
-    }
-    setSelectedId(id);
-  };
-
-  const handleOverlayClick = () => {
-    setSelectedId(null);
-  };
-
   return (
-    <div className="relative min-h-screen">
-      {/* Contenido principal */}
-      <section className={`relative z-10 ${isBoxSelected ? 'pointer-events-none' : ''}`}>
-         <div className="flex justify-center p-4">
-           <h2 className="font-semibold text-4xl text-[#101736] tracking-wider">About Me</h2>
-         </div>
-         <div className="flex flex-col px-10 lg:px-40 justify-center">
+    <div className="relative min-h-screen py-16 px-4 md:px-10 lg:px-20 overflow-x-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex justify-center mb-12"
+      >
+        <h2 className="font-semibold text-4xl md:text-5xl text-[#101736] dark:text-[#d2d3ce] tracking-wider transition-colors duration-300">About Me</h2>
+      </motion.div>
 
-             {/* Primer grid */}
-             <div className="grid grid-cols-1 md:grid-cols-3 m-4 gap-6 md:gap-10">
-               {boxes.slice(0, 2).map((box) => {
-                 const isThisBoxSelected = selectedId === box.id;
-                 const opacity = isBoxSelected && !isThisBoxSelected ? 0.3 : 1;
-                 return (
-                   <React.Fragment key={box.id}>
-                     <motion.div
-                       className={`bg-[#d2d3ce] p-4 rounded-2xl cursor-pointer overflow-hidden ${box.className}`}
-                       variants={boxVariants}
-                       animate={isThisBoxSelected ? "selected" : "unselected"}
-                       onClick={() => handleBoxClick(box.id)}
-                       style={{ pointerEvents: isBoxSelected && !isThisBoxSelected ? 'none' : 'auto', opacity: opacity }}
-                       layout
-                     >
-                       <h3 className="font-semibold text-lg md:text-xl text-[#101736] tracking-wider mb-2">{box.title}</h3>
-                       <p className="text-[#101736] text-xs md:text-sm tracking-wider opacity-80">{box.content}</p>
-                     </motion.div>
-                     {isThisBoxSelected && (
-                       <div className={box.className} style={{ visibility: 'hidden' }} />
-                     )}
-                   </React.Fragment>
-                 );
-               })}
-             </div>
+      <div className="max-w-6xl mx-auto">
+        {/* First Row - 1 column + 2 columns on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          {boxes.slice(0, 2).map((box, index) => {
+            if (expandedId !== null) {
+              return (
+                <div
+                  key={box.id}
+                  className={`bg-[#d2d3ce] dark:bg-[#1a2347] p-6 rounded-2xl min-h-[200px] flex flex-col justify-center ${box.span} invisible`}
+                />
+              );
+            }
+            return (
+              <motion.div
+                key={box.id}
+                layoutId={`about-box-${box.id}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`bg-[#d2d3ce] dark:bg-[#1a2347] p-6 rounded-2xl cursor-pointer hover:bg-[#b9b9b9] dark:hover:bg-[#232d4a] transition-colors duration-300 min-h-[200px] flex flex-col justify-center ${box.span}`}
+                onClick={() => setExpandedId(box.id)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <h3 className="font-semibold text-[#101736] dark:text-[#d2d3ce] tracking-wider mb-3 text-lg md:text-xl transition-colors duration-300">{box.title}</h3>
+                <p className="text-[#101736] dark:text-[#d2d3ce] tracking-wider opacity-80 text-sm md:text-base transition-colors duration-300">{box.content}</p>
+              </motion.div>
+            );
+          })}
+        </div>
 
-             {/* Segundo grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 m-4 gap-6 md:gap-10">
-                {boxes.slice(2, 4).map((box) => {
-                  const isThisBoxSelected = selectedId === box.id;
-                  const opacity = isBoxSelected && !isThisBoxSelected ? 0.3 : 1;
-                  return (
-                    <React.Fragment key={box.id}>
-                      <motion.div
-                        className={`bg-[#d2d3ce] p-4 rounded-2xl cursor-pointer overflow-hidden ${box.className}`}
-                        variants={boxVariants}
-                        animate={isThisBoxSelected ? "selected" : "unselected"}
-                        onClick={() => handleBoxClick(box.id)}
-                        style={{ pointerEvents: isBoxSelected && !isThisBoxSelected ? 'none' : 'auto', opacity:opacity }}
-                        layout
-                      >
-                        <h3 className="font-semibold text-lg md:text-xl text-[#101736] tracking-wider mb-2">{box.title}</h3>
-                        <p className="text-[#101736] text-xs md:text-sm tracking-wider opacity-80">{box.content}</p>
-                      </motion.div>
-                      {isThisBoxSelected && (
-                        <div className={box.className} style={{ visibility: 'hidden' }} />
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </div>
+        {/* Second Row - 2 columns + 1 column on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {boxes.slice(2, 4).map((box, index) => {
+            if (expandedId !== null) {
+              return (
+                <div
+                  key={box.id}
+                  className={`bg-[#d2d3ce] dark:bg-[#1a2347] p-6 rounded-2xl min-h-[200px] flex flex-col justify-center ${box.span} invisible`}
+                />
+              );
+            }
+            return (
+              <motion.div
+                key={box.id}
+                layoutId={`about-box-${box.id}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: (index + 2) * 0.1 }}
+                viewport={{ once: true }}
+                className={`bg-[#d2d3ce] dark:bg-[#1a2347] p-6 rounded-2xl cursor-pointer hover:bg-[#b9b9b9] dark:hover:bg-[#232d4a] transition-colors duration-300 min-h-[200px] flex flex-col justify-center ${box.span}`}
+                onClick={() => setExpandedId(box.id)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <h3 className="font-semibold text-[#101736] dark:text-[#d2d3ce] tracking-wider mb-3 text-lg md:text-xl transition-colors duration-300">{box.title}</h3>
+                <p className="text-[#101736] dark:text-[#d2d3ce] tracking-wider opacity-80 text-sm md:text-base transition-colors duration-300">{box.content}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
 
-            {/* Segundo grid */}
-             <div className="grid grid-cols-3 m-4 gap-10 lg:gap-10">
-               {boxes.slice(2, 4).map((box) => {
-                 const isThisBoxSelected = selectedId === box.id;
-                 // Determinar la opacidad de la misma manera
-                 const opacity = isBoxSelected && !isThisBoxSelected ? 0.3 : 1;
-                 return (
-                   <React.Fragment key={box.id}>
-                      <motion.div
-                        className={`bg-[#d2d3ce] p-4 rounded-2xl ${box.className} cursor-pointer overflow-hidden`}
-                        variants={boxVariants}
-                        animate={isThisBoxSelected ? "selected" : "unselected"}
-                        onClick={() => handleBoxClick(box.id)}
-                        style={{ pointerEvents: isBoxSelected && !isThisBoxSelected ? 'none' : 'auto', opacity:opacity }}
-                        layout
-                      >
-                        <h3 className="font-semibold text-lg md:text-xl text-[#101736] tracking-wider mb-2">{box.title}</h3>
-                        <p className="text-[#101736] text-xs md:text-sm tracking-wider opacity-80">{box.content}</p>
-                      </motion.div>
-                     {isThisBoxSelected && (
-                       <div
-                         className={box.className}
-                         style={{ visibility: 'hidden' }}
-                       />
-                     )}
-                   </React.Fragment>
-                 );
-               })}
-             </div>
-         </div>
-      </section>
-
-      {/* Overlay */}
-      {isBoxSelected && (
+      {/* Expanded Card - Animates from original position to center */}
+      {expandedId !== null && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 bg-black bg-opacity-20 z-[500]"
-          onClick={handleOverlayClick}
-        />
+          layoutId={`about-box-${expandedId}`}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setExpandedId(null)}
+        >
+          <div
+            className="bg-[#d2d3ce] dark:bg-[#1a2347] rounded-2xl p-8 md:p-12 max-w-3xl w-full max-h-[90vh] overflow-y-auto transition-colors duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {boxes.filter(b => b.id === expandedId).map(box => (
+                <div key={box.id}>
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="font-semibold text-3xl md:text-4xl text-[#101736] dark:text-[#d2d3ce] tracking-wider transition-colors duration-300">
+                    {box.title}
+                  </h3>
+                  <button
+                    onClick={() => setExpandedId(null)}
+                    className="text-[#101736] dark:text-[#d2d3ce] hover:text-black dark:hover:text-white transition-colors text-3xl leading-none"
+                  >
+                    ×
+                  </button>
+                </div>
+                <p className="text-[#101736] dark:text-[#d2d3ce] text-base md:text-lg tracking-wider opacity-80 transition-colors duration-300">
+                  {box.content}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       )}
-
     </div>
   );
 }

@@ -38,14 +38,14 @@ export default function Card ({src}){
       rotateY,
       transformStyle:"preserve-3d"
     }}
-    className="relative h-[250px] w-60 sm:h-[300px] sm:w-72 md:h-[350px] md:w-80 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] text-[#101736]"
+    className="relative h-[250px] w-60 sm:h-[300px] sm:w-72 md:h-[350px] md:w-80 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] dark:from-[#1a2347] dark:to-[#232d4a] text-[#101736] dark:text-[#d2d3ce] transition-colors duration-300"
     >
       <div
         style={{
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d"
         }}
-        className="absolute inset-4 grid place-content-center rounded-xl bg-[#f5f5f5] shadow-lg"
+        className="absolute inset-4 grid place-content-center rounded-xl bg-[#f5f5f5] dark:bg-[#232d4a] shadow-lg transition-colors duration-300"
       >
         <img className="h-[180px] sm:h-[240px] md:h-[280px] object-contain" src={src} alt="PC" />
       </div>

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { ThemeProvider } from './context/ThemeContext';
 import { PresentationSection } from './components/PresentationSection';
 import { Menu } from './components/Menu';
 import { AboutMeSection } from './components/AboutMeSection';
@@ -9,15 +10,17 @@ import { Footer } from './components/Footer';
 
 function Home() {
   return (
-    <div className='bg-[#f5f5f5] relative top-[-60px]'>
-      <Menu />
-      <PresentationSection />
-      <AboutMeSection />
-      <SkillsSection />
-      <WorksSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <ThemeProvider>
+       <div className='bg-[#f5f5f5] dark:bg-[#101736] relative min-h-screen transition-colors duration-300'>
+        <Menu />
+        <PresentationSection />
+        <AboutMeSection />
+        <SkillsSection />
+        <WorksSection />
+        <ContactSection />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

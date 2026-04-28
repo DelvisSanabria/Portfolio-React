@@ -11,7 +11,7 @@ export function SkillsSection() {
         viewport={{ once: true }}
         className="flex justify-center mb-12"
       >
-        <h2 className="font-semibold text-4xl md:text-5xl text-[#101736] tracking-wider">
+        <h2 className="font-semibold text-4xl md:text-5xl text-[#101736] dark:text-[#d2d3ce] tracking-wider transition-colors duration-300">
           Skills
         </h2>
       </motion.div>
@@ -30,7 +30,7 @@ export function SkillsSection() {
         viewport={{ once: true }}
         className="flex justify-center mt-12"
       >
-        <p className="text-[#101736] text-sm md:text-base tracking-wider text-center max-w-2xl">
+        <p className="text-[#101736] dark:text-[#d2d3ce] text-sm md:text-base tracking-wider text-center max-w-2xl transition-colors duration-300">
           Technologies I work with to build modern and scalable web applications
         </p>
       </motion.div>

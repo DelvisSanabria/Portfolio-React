@@ -32,7 +32,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="flex justify-center mb-12"
         >
-          <h2 className="font-semibold text-4xl md:text-5xl text-[#101736] tracking-wider">
+          <h2 className="font-semibold text-4xl md:text-5xl text-[#101736] dark:text-[#d2d3ce] tracking-wider transition-colors duration-300">
             Contact
           </h2>
         </motion.div>
@@ -44,30 +44,30 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="font-semibold text-xl md:text-2xl text-[#101736] tracking-wider mb-4">
+            <h3 className="font-semibold text-xl md:text-2xl text-[#101736] dark:text-[#d2d3ce] tracking-wider mb-4 transition-colors duration-300">
               Get In Touch
             </h3>
-            <p className="text-[#101736] text-sm md:text-base tracking-wider mb-6 opacity-80">
+            <p className="text-[#101736] dark:text-[#d2d3ce] text-sm md:text-base tracking-wider mb-6 opacity-80 transition-colors duration-300">
               Feel free to reach out if you're looking for a developer, have a question,
               or just want to connect.
             </p>
             <div className="space-y-4">
               <motion.div
-                className="flex items-center gap-3 text-[#101736]"
+                className="flex items-center gap-3 text-[#101736] dark:text-[#d2d3ce] transition-colors duration-300"
                 whileHover={{ x: 5 }}
               >
                 <span className="text-2xl">📧</span>
                 <span className="tracking-wider">delvis.sanabria@example.com</span>
               </motion.div>
               <motion.div
-                className="flex items-center gap-3 text-[#101736]"
+                className="flex items-center gap-3 text-[#101736] dark:text-[#d2d3ce] transition-colors duration-300"
                 whileHover={{ x: 5 }}
               >
                 <span className="text-2xl">📱</span>
                 <span className="tracking-wider">+1 (234) 567-890</span>
               </motion.div>
               <motion.div
-                className="flex items-center gap-3 text-[#101736]"
+                className="flex items-center gap-3 text-[#101736] dark:text-[#d2d3ce] transition-colors duration-300"
                 whileHover={{ x: 5 }}
               >
                 <span className="text-2xl">📍</span>
@@ -82,7 +82,7 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="bg-[#d2d3ce] rounded-2xl p-6 md:p-8"
+            className="bg-[#d2d3ce] dark:bg-[#1a2347] rounded-2xl p-6 md:p-8 transition-colors duration-300"
           >
             <div className="mb-4">
               <input
@@ -92,7 +92,7 @@ export function ContactSection() {
                 onChange={handleChange}
                 placeholder="Your Name"
                 required
-                className="w-full p-3 rounded-xl bg-[#f5f5f5] text-[#101736] placeholder-[#101736]/50 tracking-wider text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#b9b9b9]"
+                className="w-full p-3 rounded-xl bg-[#f5f5f5] dark:bg-[#232d4a] text-[#101736] dark:text-[#d2d3ce] placeholder-[#101736]/50 dark:placeholder-[#d2d3ce]/50 tracking-wider text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#b9b9b9] transition-colors duration-300"
               />
             </div>
             <div className="mb-4">
@@ -103,7 +103,7 @@ export function ContactSection() {
                 onChange={handleChange}
                 placeholder="Your Email"
                 required
-                className="w-full p-3 rounded-xl bg-[#f5f5f5] text-[#101736] placeholder-[#101736]/50 tracking-wider text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#b9b9b9]"
+                className="w-full p-3 rounded-xl bg-[#f5f5f5] dark:bg-[#232d4a] text-[#101736] dark:text-[#d2d3ce] placeholder-[#101736]/50 dark:placeholder-[#d2d3ce]/50 tracking-wider text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#b9b9b9] transition-colors duration-300"
               />
             </div>
             <div className="mb-6">
@@ -114,13 +114,13 @@ export function ContactSection() {
                 placeholder="Your Message"
                 required
                 rows="4"
-                className="w-full p-3 rounded-xl bg-[#f5f5f5] text-[#101736] placeholder-[#101736]/50 tracking-wider text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#b9b9b9] resize-none"
+                className="w-full p-3 rounded-xl bg-[#f5f5f5] dark:bg-[#232d4a] text-[#101736] dark:text-[#d2d3ce] placeholder-[#101736]/50 dark:placeholder-[#d2d3ce]/50 tracking-wider text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[#b9b9b9] resize-none transition-colors duration-300"
               ></textarea>
             </div>
             <motion.button
               type="submit"
-              className="w-full p-3 rounded-xl bg-[#101736] text-[#f5f5f5] font-semibold tracking-wider text-sm md:text-base"
-              whileHover={{ scale: 1.02, backgroundColor: "#1a2347" }}
+              className="w-full p-3 rounded-xl bg-[#101736] dark:bg-[#d2d3ce] text-[#f5f5f5] dark:text-[#101736] font-semibold tracking-wider text-sm md:text-base transition-colors duration-300"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Send Message
