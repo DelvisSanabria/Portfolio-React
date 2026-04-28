@@ -38,7 +38,7 @@ export default function Card ({src}){
       rotateY,
       transformStyle:"preserve-3d"
     }}
-    className="relative h-[300px] w-72 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] text-[#101736]"
+    className="relative h-[250px] w-60 sm:h-[300px] sm:w-72 md:h-[350px] md:w-80 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] text-[#101736]"
     >
       <div
         style={{
@@ -47,7 +47,7 @@ export default function Card ({src}){
         }}
         className="absolute inset-4 grid place-content-center rounded-xl bg-[#f5f5f5] shadow-lg"
       >
-        <img className="h-[240px]" src={src} alt={src} />
+        <img className="h-[180px] sm:h-[240px] md:h-[280px] object-contain" src={src} alt="PC" />
       </div>
     </motion.div>
   )
