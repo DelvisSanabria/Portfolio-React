@@ -59,7 +59,7 @@ export function PresentationSection(){
           </motion.div>
         </AnimatePresence>
       </header>
-      <main className="grid grid-rows-[125px_1fr] pl-11 mt-3 justify-center justify-items-center overflow-x-hidden">
+      <main className="grid grid-rows-[120px_0.90fr] mt-3 justify-center justify-items-center overflow-x-hidden">
         <AnimatePresence>
           <motion.div
             onMouseMove={handleMouseMove}

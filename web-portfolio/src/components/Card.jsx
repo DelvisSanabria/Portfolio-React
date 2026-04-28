@@ -38,7 +38,7 @@ export default function Card ({src}){
       rotateY,
       transformStyle:"preserve-3d"
     }}
-    className="relative h-[380px] w-72 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] text-[#101736]"
+    className="relative h-[300px] w-72 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] text-[#101736]"
     >
       <div
         style={{
