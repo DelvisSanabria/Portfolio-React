@@ -36,9 +36,10 @@ export default function Card ({src}){
     style={{
       rotateX,
       rotateY,
-      transformStyle:"preserve-3d"
+      transformStyle:"preserve-3d",
+      boxShadow: "0 20px 60px rgba(0,0,0,0.15)"
     }}
-    className="relative h-[250px] w-60 sm:h-[300px] sm:w-72 md:h-[350px] md:w-80 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] dark:from-[#1a2347] dark:to-[#232d4a] text-[#101736] dark:text-[#d2d3ce] transition-colors duration-300"
+    className="relative h-[250px] w-60 sm:h-[300px] sm:w-72 md:h-[350px] md:w-80 rounded-xl bg-gradient-to-br from-[#d2d3ce] to-[#b9b9b9] dark:from-[#1a2347] dark:to-[#232d4a] text-[#101736] dark:text-[#d2d3ce] transition-colors duration-300 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
     >
       <div
         style={{

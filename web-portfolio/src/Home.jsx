@@ -11,7 +11,7 @@ import { Footer } from './components/Footer';
 function Home() {
   return (
     <ThemeProvider>
-       <div className='bg-[#f5f5f5] dark:bg-[#101736] relative min-h-screen transition-colors duration-300'>
+       <div className='bg-[#f5f5f5] dark:bg-[#101736] relative min-h-screen transition-colors duration-300 font-sans'>
         <Menu />
         <PresentationSection />
         <AboutMeSection />

@@ -35,7 +35,10 @@ export function PresentationSection(){
     y.set(0);
   }
    return (
-    <div className="w-full overflow-x-hidden min-h-[100vh] pt-6 sm:pt-8">
+    <div className="w-full overflow-x-hidden min-h-[100vh] pt-6 sm:pt-8 relative">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f5f5f5] via-transparent to-[#d2d3ce] dark:from-[#101736] dark:via-transparent dark:to-[#1a2347] opacity-50 pointer-events-none transition-colors duration-300"></div>
+      <div className="relative z-10">
       <header className="flex justify-between items-center py-4 px-4 w-full relative z-50">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
@@ -56,45 +59,45 @@ export function PresentationSection(){
             </button>
           </div>
       </header>
-      <main className="grid grid-rows-[120px_1fr] mt-3 justify-center justify-items-center overflow-x-hidden px-4">
-        <AnimatePresence>
-          <motion.div
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-            }}
-            initial={{ x: "-100%", scale: 0.5 }}
-            animate={{ x: 0, scale: 1 }}
-            transition={{
-              scale: { duration: 4 },
-              duration: 3,
-            }}
-            exit={{ x: "-100%", scale: 0.5 }}
-            className="grid grid-rows-[100px_17px] justify-items-center select-none"
-          >
-            <div className="flex flex-row justify-center items-center w-[280px] sm:w-[300px] md:w-[400px] h-auto min-h-[100px] bg-white dark:bg-[#1a2347] rounded-2xl p-4 md:p-6 transition-colors duration-300">
-              <div className="grid grid-rows-3 justify-center text-center">
-                <h2 className="font-semibold text-[#101736] dark:text-[#d2d3ce] tracking-wider text-sm md:text-base lg:text-lg transition-colors duration-300">
-                  Hi! I am Delvis Sanabria
-                </h2>
-                <h3 className="font-medium text-[#101736] dark:text-[#d2d3ce] tracking-wider mt-1 text-xs md:text-sm transition-colors duration-300">
-                  Web Developer
-                </h3>
-                <span className="text-[#101736] dark:text-[#d2d3ce] tracking-wider text-xs mt-2 transition-colors duration-300">
-                  and this is a piece of me
-                </span>
-              </div>
-            </div>
-            <div className="w-0 h-0 border-l-[18px] border-l-transparent border-b-[19px] border-b-white dark:border-b-[#1a2347] border-r-[18px] border-r-transparent rotate-180 transition-colors duration-300"></div>
-          </motion.div>
-        </AnimatePresence>
-        <div className="flex flex-row justify-center items-center mt-4 md:mt-0">
-          <Card src={pc}></Card>
-        </div>
-      </main>
+       <main className="flex flex-col items-center mt-8 md:mt-10 px-4 overflow-x-hidden gap-8 md:gap-10">
+         <AnimatePresence>
+           <div className="flex flex-col items-center">
+             <motion.div
+               onMouseMove={handleMouseMove}
+               onMouseLeave={handleMouseLeave}
+               style={{
+                 rotateX,
+                 rotateY,
+                 transformStyle: "preserve-3d",
+               }}
+               initial={{ x: "-100%", scale: 0.5 }}
+               animate={{ x: 0, scale: 1 }}
+               transition={{
+                 scale: { duration: 4 },
+                 duration: 3,
+               }}
+               exit={{ x: "-100%", scale: 0.5 }}
+               className="flex flex-col items-center select-none"
+             >
+               <div className="flex flex-row justify-center items-center w-[280px] sm:w-[300px] md:w-[400px] h-auto min-h-[100px] bg-white dark:bg-[#1a2347] rounded-2xl p-4 md:p-6 transition-colors duration-300">
+                 <div className="grid grid-rows-3 justify-center text-center">
+                   <h2 className="font-semibold text-[#101736] dark:text-[#d2d3ce] tracking-wider text-sm md:text-base lg:text-lg transition-colors duration-300">
+                     Hi! I am Delvis Sanabria
+                   </h2>
+                   <h3 className="font-medium text-[#101736] dark:text-[#d2d3ce] tracking-wider mt-1 text-xs md:text-sm transition-colors duration-300">
+                     Web Developer
+                   </h3>
+                   <span className="text-[#101736] dark:text-[#d2d3ce] tracking-wider text-xs mt-2 transition-colors duration-300">
+                     and this is a piece of me
+                   </span>
+                 </div>
+               </div>
+             </motion.div>
+           </div>
+         </AnimatePresence>
+         <Card src={pc}></Card>
+       </main>
+      </div>
     </div>
   );
 };

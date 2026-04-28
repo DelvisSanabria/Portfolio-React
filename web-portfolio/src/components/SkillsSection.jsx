@@ -3,7 +3,7 @@ import { Slider } from "./Slider";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="min-h-screen py-16 px-4 md:px-10 lg:px-20">
+    <section id="skills" className="min-h-screen py-16 px-4 md:px-10 lg:px-20 bg-[#f5f5f5] dark:bg-[#101736] transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
